@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
+      integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"
+      integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script src="airtable.browser.js"></script>
+    <script src="script.js"></script>
+    <style>
+      .dropdown-menu {
+        max-height: 150px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container themed-container" style="margin-top: 50px">
+      <h1>Questions</h1>
+      <form class="row g-3" id="form">
+        <div class="col-md-12">
+          <label aria-label="select example" class="form-label">Size</label>
+          <select id="q1" required class="selectpicker form-control" multiple>
+            <option disabled value="">Choose max of 3</option>
+            <option value="Big">Big</option>
+            <option value="next-gen">Next-gen</option>
+            <option value="Small">Small</option>
+            <option value="Mediem">Mediem</option>
+          </select>
+          <div class="invalid-feedback">Example invalid select feedback</div>
+        </div>
+        <div class="col-md-12">
+          <label class="form-label">Color</label>
+          <select id="q2" required class="selectpicker form-control" multiple>
+            <option disabled value="">Choose max of 3</option>
+            <option value="Blue">Blue</option>
+            <option value="Red">Red</option>
+            <option value="Orange">Orange</option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="inputEmail4" class="form-label">Question three</label>
+          <select id="q3" required class="selectpicker form-control" multiple>
+            <option disabled value="">Choose max of 3</option>
+            <option value="t-shirt">t-shirt</option>
+            <option value="Shirt">Shirt</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+      <div class="col-md-12" style="align-items: center;">
+        <h1 id="result" style="margin-top: 50px; text-align: center;">Answers</h1>
+      </div>
+      
+      <div id="answers">
+        
+        <table class="table result">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Resource</th>
+              <th scope="col">About</th>
+              <th scope="col">Website</th>
+            </tr>
+          </thead>
+          <tbody id="theTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
