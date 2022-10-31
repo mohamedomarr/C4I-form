@@ -14,16 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   document.getElementById("q2").addEventListener("change", (event) => {
-//     lol = [...event.target.options].filter(({ selected }) => selected).map(({ value }) => value);
-//     console.log(lol);
-//     if (event.target.matches("#q2")) {
-//       if (lol.length > 3) {
-//         alert("Please Select only three");
-//         event.target.option.selected = false;
-// }}})});
-
 function callingAirtable(answers) {
   formula = "AND(";
   for (i = 1; i <= Object.keys(answers).length; i++) {
