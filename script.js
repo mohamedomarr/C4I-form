@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
       Q1: [...document.getElementById("q1").options].filter(({ selected }) => selected).map(({ value }) => value),
       Q2: [...document.getElementById("q2").options].filter(({ selected }) => selected).map(({ value }) => value),
       Q3: [...document.getElementById("q3").options].filter(({ selected }) => selected).map(({ value }) => value),
+      Q4: [...document.getElementById("q4").options].filter(({ selected }) => selected).map(({ value }) => value),
+      Q5: [...document.getElementById("q5").options].filter(({ selected }) => selected).map(({ value }) => value),
+      Q6: [...document.getElementById("q6").options].filter(({ selected }) => selected).map(({ value }) => value),
     };
     console.log(answers);
     callingAirtable(answers);
@@ -23,30 +26,15 @@ function callingAirtable(answers) {
     }
     formula = formula.slice(0, -1);
     formula += "),";
-    // formula +=
-    //   'OR(SEARCH("' + answers["Q" + i][0] + '",Q' + i + '),SEARCH("' + answers["Q" + i][1] + '",Q' + i + '),SEARCH("' + answers["Q" + i][2] + '",Q' + i + ")),";
     console.log(formula);
   }
   formula = formula.slice(0, -1);
   formula += ")";
   console.log(formula);
-  // forumula output
-  // AND(
-  //   OR(SEARCH("Big",Q1),SEARCH("Small",Q1),SEARCH("Medium",Q1)),
-  //   OR(SEARCH("Blue",Q2),SEARCH("Red",Q2),SEARCH("undefined",Q2)),
-  //   OR(SEARCH("t-shirt",Q3),SEARCH("Shirt",Q3),SEARCH("undefined",Q3))
-  //   )
-
   var Airtable = require("airtable");
   var base = new Airtable({ apiKey: "keysUzYibkWIvTiv1" }).base("appX1PqOi2LUwjIwF");
   base("Main")
     .select({
-      //old forumula
-      //       filterByFormula: `AND(
-      // OR(SEARCH("${answers.Q1[0]}", Q1),SEARCH("${answers.Q1[1]}",Q1),SEARCH("${answers.Q1[2]}",Q1)),
-      // OR(SEARCH("${answers.Q2[0]}", Q2),SEARCH("${answers.Q2[1]}",Q2),SEARCH("${answers.Q2[2]}",Q2)),
-      // OR(SEARCH("${answers.Q3[0]}", Q3),SEARCH("${answers.Q3[1]}",Q3),SEARCH("${answers.Q3[2]}",Q3))
-      // )`,
       filterByFormula: formula,
     })
     .eachPage(
