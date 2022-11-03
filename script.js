@@ -20,13 +20,15 @@ document.addEventListener("DOMContentLoaded", () => {
 function callingAirtable(answers) {
   formula = "AND(";
   for (i = 1; i <= Object.keys(answers).length; i++) {
-    formula += "OR(";
-    for (j = 0; j < answers["Q" + i].length; j++) {
-      formula += 'SEARCH("' + answers["Q" + i][j] + '",Q' + i + "),";
+    if (answers["Q" + i].length >= 1) {
+      formula += "OR(";
+      for (j = 0; j < answers["Q" + i].length; j++) {
+        formula += 'SEARCH("' + answers["Q" + i][j] + '",Q' + i + "),";
+      }
+      formula = formula.slice(0, -1);
+      formula += "),";
+      console.log(formula);
     }
-    formula = formula.slice(0, -1);
-    formula += "),";
-    console.log(formula);
   }
   formula = formula.slice(0, -1);
   formula += ")";
@@ -54,15 +56,17 @@ function callingAirtable(answers) {
             console.log("Answer number ", i);
             console.log("Resource:", records[i].get("Name"));
             console.log("Website:", records[i].get("Website"));
-            console.log("Image:", records[i].get("Logo")[0].url);
-
             $("#theTable").append(
               `<tr>
-              <th scope="row">${i + 1}</th>
-              <td><img class="img-fluid img-thumbnail" style="max-width:200px;" src="${records[i].get("Logo")[0].url}"></td>
-              <td>${records[i].get("Name")}</td>
-              <td><a href="${records[i].get("Website")}">Website Link</a></td>
-              </tr>`
+                <th scope="row">${i + 1}</th>
+                ${
+                  records[i].get("Logo")
+                    ? `<td><img class="img-fluid img-thumbnail" style="max-width:200px;" src="${records[i].get("Logo")[0].url}"></td>`
+                    : "<td></td>"
+                }
+                <td>${records[i].get("Name")}</td>
+                <td><a href="${records[i].get("Website")}">Website Link</a></td>
+                </tr>`
             );
           }
         }
