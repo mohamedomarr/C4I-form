@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>    
+  <head>
     <title>C4I Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -19,40 +19,205 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
     <script src="airtable.browser.js"></script>
     <script src="script.js"></script>
-    <style>.dropdown-menu {max-height: 150px;overflow-y: auto;}</style>
+    <style>
+      .dropdown-menu {
+        max-height: 150px;
+        overflow-y: auto;
+        width: 100px;
+    white-space:pre-wrap;
+      }
+      .col-md-12 {
+        margin-bottom: 20px;
+      }
+      label {
+        font-weight: bold;
+      }
+      @media (min-width:960px){
+        img {
+          max-width:200px;
+        }
+      }
+      @media (max-width:959px){
+        img {
+          max-width:100px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="container themed-container" style="margin-top: 50px">
-      <h1>Questions</h1>
+      <h1 style="margin-bottom: 20px;">C4I Form</h1>
       <form class="row g-3" id="form">
+
+
         <div class="col-md-12">
-          <label aria-label="select example" class="form-label">Size</label>
-          <select id="q1" required class="selectpicker form-control" multiple data-max-options="3">
-            <option disabled value="">Choose max of 3</option>
-            <option value="Big">Big</option>
-            <option value="next-gen">Next-gen</option>
-            <option value="Small">Small</option>
-            <option value="Mediem">Mediem</option>
+          <label aria-label="select example" class="form-label">Q1: I am a(n)</label>
+          <select id="q1" required class="selectpicker form-control" multiple data-max-options="2">
+            <option disabled value="">Choose a maximum of 2</option>
+            <option value="next-gen philanthropist">next-gen philanthropist</option>
+            <option value="responsible leader">responsible leader</option>
+            <option value="next-gen">next-gen</option>
+            <option value="Asset Manager">Asset Manager</option>
+            <option value="Next-gen inheritor, already knowledgeable">Next-gen inheritor, already knowledgeable</option>
+            <option value="Accredited/deploying investor">Accredited/deploying investor</option>
+            <option value="Foundation">Foundation</option>
+            <option value="Financial Professional">Financial Professional</option>
+            <option value="Next-gen inheritor, beginning of impact journey">Next-gen inheritor, beginning of impact journey</option>
+            <option value="Impact fund">Impact fund</option>
+            <option value="social entrepreneur">social entrepreneur</option>
+            <option value="changemaker">changemaker</option>
+            <option value="Financial advisor/Wealth manager">Financial advisor/Wealth manager</option>
+            <option value="Family office">Family office</option>
+            <option value="philanthropist">philanthropist</option>
           </select>
-          <div class="invalid-feedback">Example invalid select feedback</div>
         </div>
+
+
+
         <div class="col-md-12">
-          <label class="form-label">Color</label>
-          <select id="q2" required class="selectpicker form-control" multiple data-max-options="2">
-            <option disabled value="">Choose max of 2</option>
-            <option value="Blue">Blue</option>
-            <option value="Red">Red</option>
-            <option value="Orange">Orange</option>
+          <label for="inputEmail4" class="form-label">Q2: I’m based in</label>
+          <select id="q2" required class="selectpicker form-control" one>
+            <option selected disabled value="">Choose one</option>
+            <option value="LATAM">LATAM</option>
+            <option value="All">All</option>
+            <option value="Australia">Australia</option>
+            <option value="Global">Global</option>
+            <option value="Africa">Africa</option>
+            <option value="Asia">Asia</option>
+            <option value="USA">USA</option>
+            <option value="Europe">Europe</option>
+            <option value="Scandinavia/ The Nordics">Scandinavia/ The Nordics</option>
+            <option value="Middle East">Middle East</option>
           </select>
         </div>
+
+
+
         <div class="col-md-12">
-          <label for="inputEmail4" class="form-label">Question three</label>
+          <label for="inputEmail4" class="form-label">Q3: I have an investable Wealth (AUM) of</label>
           <select id="q3" required class="selectpicker form-control" one>
-            <option disabled value="">Choose one</option>
-            <option value="t-shirt">t-shirt</option>
-            <option value="Shirt">Shirt</option>
+            <option selected disabled value="">Choose one</option>
+            <option value="N/A">N/A</option>
+            <option value="> USD 100M">> USD 100M</option>
+            <option value="USD 30-100M">USD 30-100M</option>
+            <option value="USD 1-30M">USD 1-30M</option>
+            <option value="< USD 1M">< USD 1M</option>
           </select>
         </div>
+
+
+        <div class="col-md-12">
+          <label class="form-label">Q4: I’m looking for</label>
+          <select id="q4" required class="selectpicker form-control" multiple data-max-options="2">
+            <option disabled value="">Choose a maximum of 2</option>
+
+<option value="Joining a working group working on a specific impact subject matter that has my interest">Joining a working group working on a specific impact subject matter that has my interest</option>
+<option value="Looking to direct at least 100% of 1 of my portfolios to impact">Looking to direct at least 100% of 1 of my portfolios to impact</option>
+<option value="Research on philanthropy">Research on philanthropy</option>
+<option value="an encyclopedia and how-to guide for entrepreneurs">an encyclopedia and how-to guide for entrepreneurs</option>
+<option value="Getting to know other next-gens">Getting to know other next-gens</option>
+<option value="Tools to help me invest for impact">Tools to help me invest for impact</option>
+<option value="Impact Investing Reports/Papers/Studies">Impact Investing Reports/Papers/Studies</option>
+<option value="A gathering that explores the nexus between impact and technology">A gathering that explores the nexus between impact and technology</option>
+<option value="Investments">Investments</option>
+<option value="Impact Investing Webinars and Virtual Events">Impact Investing Webinars and Virtual Events</option>
+<option value="A training program that introduces me to the basic principles of impact investing">A training program that introduces me to the basic principles of impact investing</option>
+<option value="Getting to know other impact investors">Getting to know other impact investors</option>
+<option value="Getting to know other accredited investors">Getting to know other accredited investors</option>
+<option value="A network of changemakers">A network of changemakers</option>
+<option value="Getting to know other accredited impact investors">Getting to know other accredited impact investors</option>
+<option value="Toniic Tracer is a new platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes">Toniic Tracer is a new platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes</option>
+<option value="Portfolio Management Tools">Portfolio Management Tools</option>
+<option value="a platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes.">a platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes.</option>
+<option value="All round support on my family system’s impact approach, including my wealth managers, family officers, foundations, etc">All round support on my family system’s impact approach, including my wealth managers, family officers, foundations, etc</option>
+<option value="An impact accelerator program">An impact accelerator program</option>
+<option value="Working Groups on Specific Topics in the Field of Impact Investing">Working Groups on Specific Topics in the Field of Impact Investing</option>
+<option value="and impact professionals">and impact professionals</option>
+<option value="an encyclopedia and how-to guide for entrepreneurs, investors, and impact professionals">an encyclopedia and how-to guide for entrepreneurs, investors, and impact professionals</option>
+<option value="A gathering that brings together social entrepreneurs and investors">A gathering that brings together social entrepreneurs and investors</option>
+<option value="An impact tech accelerator">An impact tech accelerator</option>
+<option value="Impact investment opportunities">Impact investment opportunities</option>
+<option value="investors">investors</option>
+<option value="a platform that engages and connects politicians, bureaucrats, scientists, urbanists, architects, the business community, and civil society in order to identify and help implement new strategies and innovation for sustainable urban development">a platform that engages and connects politicians, bureaucrats, scientists, urbanists, architects, the business community, and civil society in order to identify and help implement new strategies and innovation for sustainable urban development</option>
+<option value="Investment">Investment</option>
+<option value="Directing at least 100% of 1 of my portfolios to impact">Directing at least 100% of 1 of my portfolios to impact</option>
+<option value="A program that introduces me to the basic principles of philanthropy">A program that introduces me to the basic principles of philanthropy</option>
+<option value="an introduction to the world of impact investing and philanthropy">an introduction to the world of impact investing and philanthropy</option>
+<option value="a training course that gives a foundational understanding of sustainable finance">a training course that gives a foundational understanding of sustainable finance</option>
+<option value="Grant">Grant</option>
+<option value="Research on Impact Investing">Research on Impact Investing</option>
+<option value="Learning more on philanthropy and getting to know other like minded next-gen philanthropists">Learning more on philanthropy and getting to know other like minded next-gen philanthropists</option>
+<option value="Engaging and connecting with new approaches and movements such as social intrapreneurship/entrepreneurship, pro bono, impact investing, political innovation, etc">Engaging and connecting with new approaches and movements such as social intrapreneurship/entrepreneurship, pro bono, impact investing, political innovation, etc</option>
+          </select>
+        </div>
+
+
+        <div class="col-md-12">
+          <label class="form-label">Q5: I’m (also) looking for</label>
+          <select id="q5" required class="selectpicker form-control" multiple data-max-options="2">
+            <option disabled value="">Choose a maximum of 2</option>
+
+<option value="A network of changemakers">A network of changemakers</option>
+<option value="Tools to help me invest for impact">Tools to help me invest for impact</option>
+<option value="an introduction to the world of impact investing and philanthropy">an introduction to the world of impact investing and philanthropy</option>
+<option value="All round support on my family system’s impact approach, including my wealth managers, family officers, foundations, etc">All round support on my family system’s impact approach, including my wealth managers, family officers, foundations, etc</option>
+<option value="Getting to know other next-gens">Getting to know other next-gens</option>
+<option value="a training course that gives a foundational understanding of sustainable finance">a training course that gives a foundational understanding of sustainable finance</option>
+<option value="latform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes.">latform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes.</option>
+<option value="an encyclopedia and how-to guide for entrepreneurs, investors, and impact professionals">an encyclopedia and how-to guide for entrepreneurs, investors, and impact professionals</option>
+<option value="Directing at least 100% of 1 of my portfolios to impact">Directing at least 100% of 1 of my portfolios to impact</option>
+<option value="Getting to know other accredited impact investors">Getting to know other accredited impact investors</option>
+<option value="Research on Impact Investing">Research on Impact Investing</option>
+<option value="Toniic Tracer is a new platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes">Toniic Tracer is a new platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes</option>
+<option value="Impact Investing Webinars and Virtual Events">Impact Investing Webinars and Virtual Events</option>
+<option value="Research on philanthropy">Research on philanthropy</option>
+<option value="a platform that engages and connects politicians, bureaucrats, scientists, urbanists, architects, the business community, and civil society in order to identify and help implement new strategies and innovation for sustainable urban development">a platform that engages and connects politicians, bureaucrats, scientists, urbanists, architects, the business community, and civil society in order to identify and help implement new strategies and innovation for sustainable urban development</option>
+<option value="A training program that introduces me to the basic principles of impact investing">A training program that introduces me to the basic principles of impact investing</option>
+<option value="a platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes.">a platform that enables investors, entrepreneurs, and funds to share and compare data about impact investments, along with corresponding goals, performance, and outcomes.</option>
+<option value="A gathering that brings together social entrepreneurs and investors">A gathering that brings together social entrepreneurs and investors</option>
+<option value="Portfolio Management Tools">Portfolio Management Tools</option>
+<option value="Investment">Investment</option>
+<option value="Grant">Grant</option>
+<option value="Learning more on philanthropy and getting to know other like minded next-gen philanthropists">Learning more on philanthropy and getting to know other like minded next-gen philanthropists</option>
+<option value="A program that introduces me to the basic principles of philanthropy">A program that introduces me to the basic principles of philanthropy</option>
+<option value="Engaging and connecting with new approaches and movements such as social intrapreneurship/entrepreneurship, pro bono, impact investing, political innovation, etc">Engaging and connecting with new approaches and movements such as social intrapreneurship/entrepreneurship, pro bono, impact investing, political innovation, etc</option>
+<option value="Getting to know other accredited investors">Getting to know other accredited investors</option>
+<option value="Impact investment opportunities">Impact investment opportunities</option>
+<option value="A gathering that explores the nexus between impact and technology">A gathering that explores the nexus between impact and technology</option>
+<option value="An impact tech accelerator">An impact tech accelerator</option>
+<option value="Joining a working group working on a specific impact subject matter that has my interest">Joining a working group working on a specific impact subject matter that has my interest</option>
+          </select>
+        </div>
+
+
+        <div class="col-md-12">
+          <label class="form-label">Q6: I have a specific interest in</label>
+          <select id="q6" required class="selectpicker form-control" multiple data-max-options="3">
+            <option disabled value="">Choose a maximum of 3</option>
+
+<option value="Philanthropy">Philanthropy</option>
+<option value="Energy Innovation">Energy Innovation</option>
+<option value="Impact Tech">Impact Tech</option>
+<option value="Animal Welfare and Biodiversity Conservation">Animal Welfare and Biodiversity Conservation</option>
+<option value="Systems Change / Investing for Systems Change">Systems Change / Investing for Systems Change</option>
+<option value="Gender Equality">Gender Equality</option>
+<option value="Oceans / Sustainable Aquaculture">Oceans / Sustainable Aquaculture</option>
+<option value="Africa">Africa</option>
+<option value="Food / Regen Ag">Food / Regen Ag</option>
+<option value="Impact Investing">Impact Investing</option>
+<option value="Futurism">Futurism</option>
+<option value="Climate Solutions">Climate Solutions</option>
+<option value="Sustainable Cities">Sustainable Cities</option>
+<option value="Social Inclusion">Social Inclusion</option>
+<option value="Family Office">Family Office</option>
+<option value="Responsible Leadership">Responsible Leadership</option>
+<option value="Racial Equity">Racial Equity</option>
+<option value="Emerging Markets">Emerging Markets</option>
+          </select>
+        </div>
+
+
+
         <div class="col-12">
           <button id="submit" type="submit" class="btn btn-primary">Submit</button>
         </div>

@@ -39,7 +39,7 @@ function callingAirtable(answers) {
 
   var Airtable = require("airtable");
   var base = new Airtable({ apiKey: "keysUzYibkWIvTiv1" }).base("appX1PqOi2LUwjIwF");
-  base("Table1")
+  base("Main")
     .select({
       //old forumula
       //       filterByFormula: `AND(
@@ -64,14 +64,17 @@ function callingAirtable(answers) {
           document.getElementById("theTable").innerHTML = "";
           for (i = 0; i < records.length; i++) {
             console.log("Answer number ", i);
-            console.log("Resource:", records[i].get("Resource"));
-            console.log("About:", records[i].get("About"));
+            console.log("Resource:", records[i].get("Name"));
             console.log("Website:", records[i].get("Website"));
+            console.log("Image:", records[i].get("Logo")[0].url);
 
             $("#theTable").append(
-              `<tr><th scope="row">${i + 1}</th><td>${records[i].get("Resource")}</td><td>${records[i].get("About")}</td><td><a href="${records[i].get(
-                "Website"
-              )}">Website Link</a></td></tr>`
+              `<tr>
+              <th scope="row">${i + 1}</th>
+              <td><img class="img-fluid img-thumbnail" style="max-width:200px;" src="${records[i].get("Logo")[0].url}"></td>
+              <td>${records[i].get("Name")}</td>
+              <td><a href="${records[i].get("Website")}">Website Link</a></td>
+              </tr>`
             );
           }
         }
